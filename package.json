@@ -1,0 +1,19 @@
+{
+  "name": "node_know_your_alcohol",
+  "version": "1.0.0",
+  "description": "Know Your Alcohol",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dara Singh",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.6",
+    "request": "^2.88.0",
+    "yargs": "^12.0.5"
+  }
+}
