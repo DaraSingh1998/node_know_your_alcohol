@@ -1,6 +1,7 @@
 const express = require('express');
 const session = require('express-session');
 const exphbs=require('express-handlebars');
+const axios=require('axios');
 
 const app=express();
 
@@ -17,13 +18,30 @@ app.use(session({
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 // Routes
-const index=require('./routes/index');
+// const index=require('./routes/index');
+app.get('/',(req,res)=>{
+  res.render('index/welcome');
+});
+app.get('/index', function (req, res) {
+    let url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?i=${req.query.cocktail}`;
+    axios({
+        method: 'get',
+        url
+    })
+    .then(function (response) {
+        let drinks = response.data.ingredients[0].strIngredient;
+        res.render("index/result", {drinks:drinks});
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
+    // res.send(req.query.cocktail);
 
-
+});
 
 
 // Use Routes
-app.use('/',index);
+// app.use('/',index);
 
 
 app.listen(PORT,()=>{
