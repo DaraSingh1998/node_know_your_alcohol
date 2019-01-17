@@ -1,0 +1,25 @@
+<h1>Results</h1>
+<div class="row">
+  {{#if drink}}
+  <div class="row">
+  {{# each drink }}
+    <div class="col s6 m4">
+      <div class="card">
+        <div class="card-image">
+          <img src="{{this.strDrinkThumb}}">
+          <span class="card-title">{{ this.strDrink }}</span>
+        </div>
+        <div class="card-content">
+          <p>{{this.strInstructions}}</p>
+        </div>
+        <div class="card-action">
+          <p>{{this.strIngredient1}}<br>{{this.strIngredient2}}<br>{{this.strIngredient3}}<br>{{this.strIngredient4}}<br>{{this.strIngredient5}}</p>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+  </div>
+  {{else}}
+    <p>No Drink found.</p>
+  {{/if}}
+</div>

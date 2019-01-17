@@ -23,18 +23,46 @@ app.get('/',(req,res)=>{
   res.render('index/welcome');
 });
 app.get('/index', function (req, res) {
-    let url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?i=${req.query.cocktail}`;
+  if(req.query.drink){
+    let url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?i=${req.query.drink}`;
     axios({
         method: 'get',
         url
     })
     .then(function (response) {
-        let drinks = response.data.ingredients[0].strIngredient;
-        res.render("index/result", {drinks:drinks});
+        let drinks = response.data.ingredients;
+        res.render("index/resultdrink", {drinks:drinks});
     })
     .catch(function (error) {
         console.log(error);
     });
+  }else if(req.query.cocktail){
+    let url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${req.query.cocktail}`;
+    axios({
+        method: 'get',
+        url
+    })
+    .then(function (response) {
+        let drink = response.data.drinks;
+        res.render("index/resultcocktail", {drink:drink});
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
+  }else{
+    let url = `https://www.thecocktaildb.com/api/json/v1/1/random.php`;
+    axios({
+        method: 'get',
+        url
+    })
+    .then(function (response) {
+        let drink = response.data.drinks;
+        res.render("index/resultcocktail", {drink:drink});
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
+  }
     // res.send(req.query.cocktail);
 
 });

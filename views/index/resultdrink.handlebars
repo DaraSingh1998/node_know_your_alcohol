@@ -1,0 +1,15 @@
+<h1>Result</h1>
+<div class="row">
+  {{#if drinks}}
+  {{# each drinks }}
+    <p>
+    {{ this.strIngredient }}
+    <br>
+    <br>
+    {{ this.strDescription }}
+    </p>
+  {{/each}}
+  {{else}}
+    <p>No Drink found.</p>
+  {{/if}}
+</div>

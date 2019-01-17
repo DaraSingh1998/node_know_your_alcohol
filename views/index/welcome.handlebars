@@ -1,13 +1,24 @@
+<div class="row">
 <h1>Welcome</h1>
 <p>Welcome to Know our Alcohol 1.0.0</p>
 <p>Search about Alcohols and cocktails</p>
-<div class="row">
-  <form class="col s12" action="/index" method="get">
+  <form class="col s5" action="/index" method="get">
     <div class="row">
       <div class="input-field">
-        <input type="text" name="cocktail" placeholder="Cocktail">
-        <label for="cocktail">Title</label>
+        <h5>Enter Cocktail Name</h5>
+        <input type="text" name="cocktail" placeholder="Margarita,Martini,A midsummernight dream" autocomplete="off">
       </div>
     </div>
   </form>
+  <div class="col s2"></div>
+  <form class="col s5" action="/index" method="get">
+    <div class="row">
+      <div class="input-field">
+        <h5>Enter Drink Name</h5>
+        <input type="text" name="drink" placeholder="Rum,Vodka,Beer" autocomplete="off">
+      </div>
+    </div>
+  </form>
+  <div class="col s11 center"><h5>Search a Random Cocktail</h5><br></div>
+  <div class="col s11 center"><a class="waves-effect waves-light btn" href="/index">Random Drink</a></div>
 </div>
